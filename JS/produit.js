@@ -11,19 +11,10 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
         div.innerHTML = teddy.displayDetails(); // Appel de la fonction présente dans notre classe teddy.
         document.getElementById('description').appendChild(div);
 
-        const select = document.getElementById('color_select'); // Ajout du menu de selection de la couleur.
-        for (let i = 0; i < teddy.color.length; i++) {
-            const color = teddy.color[i];
-            const option = select.appendChild(document.createElement("option"));
-            option.setAttribute("value", color);
-            option.textContent = color;
-        }
+        updateColorSelectorElt(teddy.colors, 'color_select');
 
-        const selectQuantity = document.getElementById('quantity_select'); // Ajout du menu de selection de la quantité.
-        for (let i = 1; i <= 10; i++) {
-            const option = selectQuantity.appendChild(document.createElement("option"));
-            option.textContent = i;
-        }
+        updateQuantitySelectorElt('quantity_select');
+
 
         // récupérations données et envoie au panier
         const addTeddy = document.getElementById('add__to__cart'); // Ajout du bouton panier
@@ -34,17 +25,16 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
             let teddiesChoosen = {
                 teddyName: teddy.name,
                 teddyId: teddy._id,
-                teddyColor: select.value,
-                quantity: selectQuantity.value,
+                teddyColor: updateColorSelectorElt.value,
+                quantity: updateQuantitySelectorElt.value,
                 teddyPrice: teddy.price / 100,
             };
             console.log(teddiesChoosen);
 
-            let storedTeddies = JSON.parse(localStorage.getItem('newArticle'));
-            const teddyColor = select.value;
+            let storedTeddies = JSON.parse(localStorage.getItem('cart'));
             if (storedTeddies) {
                 storedTeddies.push(teddiesChoosen);
-                localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+                localStorage.setItem('cart', JSON.stringify(storedTeddies));
                 console.log(storedTeddies);
                 if (window.confirm(teddy.name + " " + teddyColor + ' a bien été ajouté. Souhaitez vous consulter votre panier ?')) {
                     window.location.href = "panier.html";
@@ -54,7 +44,7 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
             } else {
                 storedTeddies = [];
                 storedTeddies.push(teddiesChoosen);
-                localStorage.setItem('newArticle', JSON.stringify(storedTeddies));
+                localStorage.setItem('cart', JSON.stringify(storedTeddies));
                 console.log(storedTeddies);
                 if (window.confirm(teddy.name + " " + teddyColor + ' a bien été ajouté. Souhaitez vous consulter votre panier ?')) {
                     window.location.href = "panier.html";
@@ -64,7 +54,7 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
             }
         });
 
-       
+
     })
 }
 
