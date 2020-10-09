@@ -1,23 +1,105 @@
-/*class Cart {
+class CartInterface {
 
-    constructor(id = "myCart"){
-        this.storage = localStorage.getItem(id);
+    static choiceOfOptions(teddy) {
+        let choiceElt = document.createElement('div');
+        choiceElt.innerHTML = `<h3>Vous souhaitez commander cet ourson?</h3>
+                <button id="btn_choice" onClick="affiche();">Choisissez la couleur ainsi que la quantité désirée en appuyant ici</button>
+                <form id="sheet__form">
+                <label for="color_select">Choix de la couleur</label><br>
+                <select id="color_select" required>
+                <option value=""> - Couleur - </option></select><br><br>
+                <label for="color_select">Choix de la Quantité</label><br>
+                <select id="quantity_select" required>
+                <option value=""> - Quantité - </option></select>
+                <button id="add__to__cart" class="product__add__to__cart"> <strong> Ajouter au panier</strong></button>
+                </form>`
+        return choiceElt
     }
 
-    function addProduct(product) {
+    static createCartRecapElt(cart){
+        let storedTeddies = cart.getAllItems();
+        const container = document.createElement('div');
+        teddyDiv.className = 'teddy_ref';
 
-       this.storage.push
+        const teddyDivCart = document.createElement('div');
+        teddyDiv.appendChild(teddyDivCart);
+        teddyDivCart.className = 'teddy_cart';
+
+
+        if(storedTeddies.length === 0){
+            const emptyCart = document.createElement('p');
+            container.appendChild(emptyCart);
+            emptyCart.className = "empty_cart";
+            emptyCart.textContent = "Votre panier est vide pour le moment."
+
+            return container;
+        }
+
+        storedTeddies.forEach(elt => {
+            container.appendChild(CartInterface.createItemEntry(elt));
+        });
+
+        return container;
     }
 
-}*/
+    static createItemEntry(storedTeddy){
+        const eachTeddy = document.createElement('div');
+        teddyDivCart.appendChild(eachTeddy);
+        eachTeddy.className = 'each_teddy';
 
 
-//const cart = new Cart();
+        const teddiesCart = document.createElement('p');
+        eachTeddy.appendChild(teddiesCart);
+        teddiesCart.textContent = storedTeddy.qty + " " + storedTeddy.name + " , " + storedTeddy.color;
+
+        const teddyPrice = document.createElement('div');
+        eachTeddy.appendChild(teddyPrice);
+        teddyPrice.className = 'teddy_price';
+        teddyPrice.id = i++;
+
+        const price = document.createElement('p');
+        teddyPrice.appendChild(price);
+        price.textContent = storedTeddy.price + " €"
+
+        // création bouton suppression d'un teddy
+        const garbageButton = document.createElement('button');
+        teddyPrice.appendChild(garbageButton);
+        garbageButton.className = 'garbage_button';
+        garbageButton.title = 'Supprimer cet article ?';
+
+        garbageButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            let id = this.closest('.teddy_price').id;
+
+            //on supprime l'article du localStorage
+            storedTeddies.splice(id, 1);
+
+            //on enregistre le nouveau localStorage
+            localStorage.setItem('cart', JSON.stringify(storedTeddies));
+            JSON.parse(localStorage.getItem('cart'));
+
+            alert('Cet article a bien été supprimé !');
+            window.location.href = "panier.html";
+        })
+
+        const iconButton = document.createElement('i');
+        garbageButton.appendChild(iconButton);
+        iconButton.className = 'fas fa-trash-alt';
 
 
-//récupération données localStorage
-let storedTeddies = JSON.parse(localStorage.getItem('cart'));
-console.log(storedTeddies);
+        return eachTeddy;
+    }
+}
+
+function affiche() {
+    if (document.getElementById('btn_choice').innerHTML == 'Choisissez la couleur ainsi que la quantité désirée en appuyant ici') {
+        document.getElementById('btn_choice').innerHTML = 'Cacher';
+        document.getElementById('sheet__form').style.display = 'block';
+    } else {
+        document.getElementById('btn_choice').innerHTML == 'Choisissez la couleur ainsi que la quantité désirée en appuyant ici';
+        document.getElementById('sheet__form').style.display = 'none';
+    }
+}
 
 // création de la page du récapitulatif panier
 const teddyMain = document.getElementById('product_page');
@@ -38,7 +120,7 @@ if (storedTeddies == null || storedTeddies.length === 0) {
     const emptyCart = document.createElement('p');
     teddyDivCart.appendChild(emptyCart);
     emptyCart.className = "empty_cart";
-    emptyCart.textContent = "Votre panier est tristement vide !"
+    emptyCart.textContent = "Votre panier est vide pour le moment."
 } else {
     // si des éléments sont présents dans le panier : récupération des éléments du panier
     let i = 0;
@@ -50,7 +132,7 @@ if (storedTeddies == null || storedTeddies.length === 0) {
 
         const teddiesCart = document.createElement('p');
         eachTeddy.appendChild(teddiesCart);
-        teddiesCart.textContent = storedTeddy.quantity + " " + storedTeddy.teddyName + " , " + storedTeddy.teddyColor;
+        teddiesCart.textContent = storedTeddy.qty + " " + storedTeddy.name + " , " + storedTeddy.color;
 
         const teddyPrice = document.createElement('div');
         eachTeddy.appendChild(teddyPrice);
@@ -59,7 +141,7 @@ if (storedTeddies == null || storedTeddies.length === 0) {
 
         const price = document.createElement('p');
         teddyPrice.appendChild(price);
-        price.textContent = storedTeddy.teddyPrice + " €"
+        price.textContent = storedTeddy.price + " €"
 
         // création bouton suppression d'un teddy
         const garbageButton = document.createElement('button');
@@ -94,7 +176,7 @@ if (storedTeddies == null || storedTeddies.length === 0) {
     //calcul du montant total
     let calculPrice = []
     for (storedTeddy of storedTeddies) {
-        let article = storedTeddy.teddyPrice;
+        let article = storedTeddy.price;
         calculPrice.push(article);
     };
 
@@ -159,18 +241,18 @@ if (storedTeddies == null || storedTeddies.length === 0) {
         firstName.required = true;
 
         // Vérification de la validité du prénom
-    firstName.addEventListener("change", function (event) {
-        if (isValid(firstName.value)) {} else {
-            alert("Aucun chiffre ou symbole n'est autorisé.")
-            event.preventDefault()
-        }
-    });
+        firstName.addEventListener("change", function (event) {
+            if (isValid(firstName.value)) {} else {
+                alert("Aucun chiffre ou symbole n'est autorisé.")
+                event.preventDefault()
+            }
+        });
     }
 
     // ajout formulaire "prénom"
     generateFirstNameElt('div_name', 'prenom', 'input')
 
-    
+
     // ajout formulaire "nom"
     const divLastName = document.createElement('div');
     form.appendChild(divLastName);

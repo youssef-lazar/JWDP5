@@ -18,3 +18,5 @@ function updateQuantitySelectorElt(selectorId) {
     return selectQuantity
 }
 
+
+

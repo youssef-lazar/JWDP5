@@ -55,6 +55,45 @@
     <main id="product_page">
         <h1>Orinoco</h1>
         <h2>Récapitulatif de votre panier</h2>
+        <section class="form" id="cart_form">
+            <form id="form1">
+                <div class="coord_form">
+                    <p class="legends_form"> Vos coordonnées : </p>
+
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="lastname" id="nom" required />
+
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" name="name" id="prenom" required />
+
+                    <label for="email">E-mail :</label>
+                    <input type="email" name="email" id="email" required />
+
+                    <label for="phone">Téléphone :</label>
+                    <input type="tel" name="phone" id="phone" required />
+                </div>
+
+                <div class="adresse_form">
+                    <p class="legends_form">Adresse de livraison : </p>
+
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" name="adress" id="adresse" required />
+
+                    <label for="zip">Code postal :</label>
+                    <input type="number" name="zip" id="zip" required />
+
+                    <label for="ville">Ville :</label>
+                    <input type="text" name="city" id="ville" required />
+
+                    <label for="pays">Pays :</label>
+                    <input type="text" name="country" id="pays" required />
+                </div>
+            </form>
+
+            <button id="btn-order" class="btn-order" type="submit" value="submit" form="form1">Passer la
+                commande</button>
+
+        </section>
     </main>
     <div class="back">
         <button><a href="index.html" title="Retour sur la page d'accueil">Retour à l'accueil</a></button>
@@ -67,8 +106,8 @@
     </footer>
 
     <script type='text/javascript' src="JS/Cart.js"></script>
-    <script type='text/javascript' src="JS/formInterface.js"></script>
-    <script type='text/javascript' src="JS/cartInterface.js"></script>
+    <script type='text/javascript' src="JS/FormInterface.js"></script>
+    <script type='text/javascript' src="JS/CartInterface.js"></script>
 </body>
 
 </html>
