@@ -10,7 +10,7 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
 
         document.getElementById('description').appendChild(TeddyInterface.displayDetails(teddy));
         document.getElementById('choix').appendChild(CartInterface.choiceOfOptions(teddy));
-
+ 
         let colorSelectElt = updateColorSelectorElt(teddy.colors, 'color_select');
         let quantitySelectElt = updateQuantitySelectorElt('quantity_select');
 
