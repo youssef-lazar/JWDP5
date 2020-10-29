@@ -1,6 +1,5 @@
 const url = `http://localhost:3000/api/teddies/`;
 const productsContainer = document.getElementById('produits');
-const descriptionContainer = document.getElementById('description');
 
 
 
@@ -24,8 +23,6 @@ function displayTeddy(teddy) { // Fonction qui vient créer un div et ajouter le
     div.querySelector('button').addEventListener('click', addProductDetailButtonListener);
     return div;
 }
-
-
 
 function addProductDetailButtonListener(e) { //Fonction qui vient ajouter un eventlistener sur nos buttons.
     let button = e.currentTarget;

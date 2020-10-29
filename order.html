@@ -21,7 +21,6 @@
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e1e907064b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -52,68 +51,18 @@
             </div><!-- /.container -->
         </nav><!-- /.navbar -->
     </header>
-    <main id="product_page">
-        <h1>Orinoco</h1>
-        <h2>Récapitulatif de votre panier</h2>
 
-        <section id="list_teddies">
+    <main class="container">
+        <section id="order_confirmation">
 
         </section>
-
-        <section id="valid_form">
-            <form id="form1">
-                <div class="coord_form">
-                    <p class="legends_form"> Vos coordonnées : </p>
-            
-                    <label for="nom">Nom :</label>
-                    <input type="text" name="lastName" id="nom" required />
-            
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" name="firstName" id="prenom" required />
-            
-                    <label for="email">E-mail :</label>
-                    <input type="email" name="email" id="email" required />
-            
-                    <label for="phone">Téléphone :</label>
-                    <input type="tel" name="phone" id="phone" required />
-                </div>
-            
-                <div class="adresse_form">
-                    <p class="legends_form">Adresse de livraison : </p>
-            
-                    <label for="adresse">Adresse :</label>
-                    <input type="text" name="address" id="adresse" required />
-            
-                    <label for="zip">Code postal :</label>
-                    <input type="number" name="zip" id="zip" required />
-            
-                    <label for="ville">Ville :</label>
-                    <input type="text" name="city" id="ville" required />
-            
-                    <label for="pays">Pays :</label>
-                    <input type="text" name="country" id="pays" required />
-                </div>
-            </form>
-            
-            <button id="btn-order" class="btn-order" type="submit" value="submit" form="form1">Passer la commande</button>
-        </section>
-
     </main>
-    <div class="back">
-        <button><a href="index.html" title="Retour sur la page d'accueil">Retour à l'accueil</a></button>
-    </div>
 
     <footer id="sticky-footer">
         <div class="container text-center">
             <h4>Site créé par LAZAR Youssef © - ORINOCO - 2020 </h4>
         </div>
     </footer>
-
-    <script src="JS/Cart.js"></script>
-    <script src="JS/FormInterface.js"></script>
-    <script src="JS/CartInterface.js"></script>
-    <script src="JS/panier.js"></script>
-    <script src="JS/valid.js"></script>
+    <script src="JS/order.js"></script>
 </body>
-
-</html>
+</body>

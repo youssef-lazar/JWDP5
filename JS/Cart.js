@@ -4,21 +4,33 @@ class Cart { // création de la classe Panier
         this.storage = JSON.parse(localStorage.getItem(id)) || []; //initialisation de notre variable storage = tableau contenant notre localstorage 'cart' ou vide si pas encore d'éléments dans le localstorage.
     }
 
-    getAllItems(){
+    getAllItems() {
         return this.storage;
+    }
+
+    getAllItemsIds(){
+       return this.storage.map(elt => elt.id);
+    }
+
+    getTotalPrice() {         
+
+        let calculPrice = 0;
+        console.log(this.storage);
+        for (const storedTeddy of this.storage) {
+           calculPrice += storedTeddy.price * storedTeddy.qty;
+        };
+        return calculPrice;
     }
 
     ajouter = (item) => {
 
-         //initialisation de notre variable article => on va chercher une correspondance au niveau de l'id et des couleurs.
-        let filter   = this.storage.filter(teddy => teddy.id === item.id && teddy.color === item.color);
-
-
+        //initialisation de notre variable article => on va chercher une correspondance au niveau de l'id et des couleurs.
+        let filter = this.storage.filter(teddy => teddy.id === item.id && teddy.color === item.color);
 
         if (filter.length === 1) { // si l'article est déjà existant, alors on vient ajouter les quantités.
             let storedItem = filter[0];
-           storedItem.qty = Number(item.qty) + Number(storedItem.qty);
-        } else if(filter.length === 0) { // sinon on le push dans notre tableau storage.
+            storedItem.qty = Number(item.qty) + Number(storedItem.qty);
+        } else if (filter.length === 0) { // sinon on le push dans notre tableau storage.
             this.storage.push(item);
         } else {
             throw new Error('Unique item already exist 2 times in storage');
@@ -27,18 +39,3 @@ class Cart { // création de la classe Panier
         return this.storage;
     }
 }
-
-
-
-
-const checkQty = () => { // Vérifie que la quantité ajoutée au panier soit valide
-    let myQty = parseInt(document.getElementById("quantity_select").value)
-    if (myQty > 0 && myQty < 100) {
-        return myQty
-        
-    } else return parseInt(document.getElementById("quantity_select").value = 1)
-}
-
-//récupération données localStorage
-let storedTeddies = JSON.parse(localStorage.getItem('cart'));
-console.log(storedTeddies);
