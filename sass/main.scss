@@ -1,16 +1,29 @@
 .card {
     border: solid;
-    margin: 30px;
+    margin: 29px;
     text-align: center;
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
     
     img {
-        width: 200px;;
+        width: 245px;
+        border-radius: 7px 7px 0px 0px;
+        height: 150px;
     }
 }
 
 #sticky-footer {
     background-color: black;
     color: white;
+    position: absolute;
+    width: 100%;
+    padding-top: 10px;
+    bottom: 0;
+
+    h4 {
+        margin-bottom: 20px;
+    }
 }
 
 #sheet__form {
