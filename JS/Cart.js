@@ -8,16 +8,16 @@ class Cart { // création de la classe Panier
         return this.storage;
     }
 
-    getAllItemsIds(){
-       return this.storage.map(elt => elt.id);
+    getAllItemsIds() {
+        return this.storage.map(elt => elt.id);
     }
 
-    getTotalPrice() {         
+    getTotalPrice() {
 
         let calculPrice = 0;
         console.log(this.storage);
         for (const storedTeddy of this.storage) {
-           calculPrice += storedTeddy.price * storedTeddy.qty;
+            calculPrice += storedTeddy.price * storedTeddy.qty;
         };
         return calculPrice;
     }

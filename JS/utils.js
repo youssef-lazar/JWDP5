@@ -3,3 +3,4 @@ async function retrieveContent(url) { //Fonction asynchrone qui va récuperer la
     const data = await response.json()
     return data;
 };
+ 

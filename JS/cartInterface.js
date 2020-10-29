@@ -126,5 +126,5 @@ class CartInterface {
 
         return totalElt
     }
-
+    
 }

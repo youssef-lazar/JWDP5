@@ -40,7 +40,7 @@ document.getElementById('form1').addEventListener("submit", function (event) {
         city: form1.city.value,
         country: form1.country.value
     }
-   
+
     // création d'un objet regroupant contact et produits
     let data = {
         contact: contact,
