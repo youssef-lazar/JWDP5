@@ -1,7 +1,8 @@
 import {retrieveContent} from "./Utils.js";
 import {Teddy} from "./Teddy.js";
 import {TeddyInterface} from "./TeddyInterface.js";
-import {FormInterface} from "./FormInterface.js";
+import {updateColorSelectorElt} from "./FormInterface.js";
+import {updateQuantitySelectorElt} from "./FormInterface.js";
 import {Cart} from "./Cart.js";
 import {CartInterface} from "./CartInterface.js";
 
@@ -33,8 +34,8 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
             }
         })
 
-        let colorSelectElt = FormInterface.updateColorSelectorElt(teddy.colors, 'color_select');
-        let quantitySelectElt = FormInterface.updateQuantitySelectorElt('quantity_select');
+        let colorSelectElt = updateColorSelectorElt(teddy.colors, 'color_select');
+        let quantitySelectElt = updateQuantitySelectorElt('quantity_select');
 
         // récupérations données et envoie au panier
         const addTeddy = document.getElementById('add__to__cart'); // Ajout du bouton panier

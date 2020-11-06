@@ -7,6 +7,10 @@ main {
     padding-bottom: 150px;
     margin-left: auto;
     margin-right: auto;
+    
+    .product {
+        text-align: center;
+    }
 }
 
 h1 {
@@ -16,13 +20,6 @@ h1 {
 
 a {
     color: white;
-}
-
-
-.container {
-    .product {
-        text-align: center;
-    }
 }
 
 .card {
