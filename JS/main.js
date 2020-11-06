@@ -1,7 +1,9 @@
+import {retrieveContent} from "./Utils.js";
+import {Teddy} from "./Teddy.js";
+import {TeddyInterface} from "./TeddyInterface.js";
+
 const url = `http://localhost:3000/api/teddies/`;
 const productsContainer = document.getElementById('produits');
-
-
 
 function getFromTeddy() { // Fonction qui vient appeler la fonction display teddy pour chaque item de la réponse.
     retrieveContent(url).then(teddies => {

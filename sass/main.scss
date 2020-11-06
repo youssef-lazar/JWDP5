@@ -1,3 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+a {
+    color: white;
+}
+
 .card {
     border: solid;
     margin: 29px;
@@ -13,12 +33,60 @@
     }
 }
 
+#list_teddies {
+
+    .each_teddy {
+        border: solid;
+        border-radius: 20px;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .icon_garbabge {
+        display: block;
+        margin: auto;
+    }
+
+    .total {
+        text-align: right;
+        font-size: 20px;
+        margin-right: 130px;
+    }
+}
+
+
+#form1 {
+    display: flex;
+
+    .form-group{
+        width: 40%;
+        margin: auto;
+    }
+}
+
+.delete_cart, .btn-order {
+    display: block;
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    margin-left: 80%;
+    margin-top: 20px;
+}
+
 #sticky-footer {
     background-color: black;
     color: white;
-    position: absolute;
     width: 100%;
     padding-top: 10px;
+    position: fixed;
     bottom: 0;
 
     h4 {

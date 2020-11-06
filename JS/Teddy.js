@@ -1,4 +1,4 @@
-class Teddy { // création de la classe teddy
+export class Teddy { // création de la classe teddy
     constructor(data) {
         this.id = data._id;
         this.name = data.name;

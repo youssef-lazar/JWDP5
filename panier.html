@@ -53,8 +53,7 @@
         </nav><!-- /.navbar -->
     </header>
     <main id="product_page">
-        <h1>Orinoco</h1>
-        <h2>Récapitulatif de votre panier</h2>
+        <h1>Récapitulatif de votre panier</h1>
 
         <section id="list_teddies">
 
@@ -62,36 +61,36 @@
 
         <section id="valid_form">
             <form id="form1">
-                <div class="coord_form">
+                <div class="coord_form form-group">
                     <p class="legends_form"> Vos coordonnées : </p>
             
                     <label for="nom">Nom :</label>
-                    <input type="text" name="lastName" id="nom" required />
+                    <input type="text" name="lastName" id="nom" class="form-control" required />
             
                     <label for="prenom">Prénom :</label>
-                    <input type="text" name="firstName" id="prenom" required />
+                    <input type="text" name="firstName" id="prenom" class="form-control" required />
             
                     <label for="email">E-mail :</label>
-                    <input type="email" name="email" id="email" required />
+                    <input type="email" name="email" id="email" class="form-control" required />
             
                     <label for="phone">Téléphone :</label>
-                    <input type="tel" name="phone" id="phone" required />
+                    <input type="tel" name="phone" id="phone" class="form-control" required />
                 </div>
             
-                <div class="adresse_form">
+                <div class="adresse_form form-group">
                     <p class="legends_form">Adresse de livraison : </p>
             
                     <label for="adresse">Adresse :</label>
-                    <input type="text" name="address" id="adresse" required />
+                    <input type="text" name="address" id="adresse" class="form-control" required />
             
                     <label for="zip">Code postal :</label>
-                    <input type="number" name="zip" id="zip" required />
+                    <input type="number" name="zip" id="zip" class="form-control" required />
             
                     <label for="ville">Ville :</label>
-                    <input type="text" name="city" id="ville" required />
+                    <input type="text" name="city" id="ville" class="form-control" required />
             
                     <label for="pays">Pays :</label>
-                    <input type="text" name="country" id="pays" required />
+                    <input type="text" name="country" id="pays" class="form-control" required />
                 </div>
             </form>
             
@@ -109,11 +108,7 @@
         </div>
     </footer>
 
-    <script src="JS/Cart.js"></script>
-    <script src="JS/FormInterface.js"></script>
-    <script src="JS/CartInterface.js"></script>
-    <script src="JS/Panier.js"></script>
-    <script src="JS/Valid.js"></script>
+    <script type="module" src="JS/Panier.js"></script>
 </body>
 
 </html>

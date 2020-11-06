@@ -1,4 +1,12 @@
-function getIdFromUrl() { 
+import {retrieveContent} from "./Utils.js";
+import {Teddy} from "./Teddy.js";
+import {TeddyInterface} from "./TeddyInterface.js";
+import {FormInterface} from "./FormInterface.js";
+import {Cart} from "./Cart.js";
+import {CartInterface} from "./CartInterface.js";
+
+
+function getIdFromUrl() {
 
     let searchParams = new URLSearchParams(location.search);
     return searchParams.get('id');
@@ -10,9 +18,23 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
 
         document.getElementById('description').appendChild(TeddyInterface.displayDetails(teddy));
         document.getElementById('choix').appendChild(CartInterface.choiceOfOptions(teddy));
- 
-        let colorSelectElt = updateColorSelectorElt(teddy.colors, 'color_select');
-        let quantitySelectElt = updateQuantitySelectorElt('quantity_select');
+
+
+        // Affichage choix de la couleur/quantité via un bouton
+        let btnChoice = document.getElementById("btn_choice");
+        let divChoice = document.getElementById("sheet__form");
+
+        btnChoice.addEventListener("click", () => {
+            if (getComputedStyle(divChoice).display != "none") {
+                divChoice.style.display = "none";
+            } else {
+                divChoice.style.display = "block";
+                btnChoice.innerHTML = 'Selectionnez à présent vos options';
+            }
+        })
+
+        let colorSelectElt = FormInterface.updateColorSelectorElt(teddy.colors, 'color_select');
+        let quantitySelectElt = FormInterface.updateQuantitySelectorElt('quantity_select');
 
         // récupérations données et envoie au panier
         const addTeddy = document.getElementById('add__to__cart'); // Ajout du bouton panier
@@ -39,16 +61,6 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
         });
     })
 }
-
-function affiche() {
-    if (document.getElementById('btn_choice').innerHTML == 'Choisissez la couleur ainsi que la quantité désirée en appuyant ici') {
-        document.getElementById('btn_choice').innerHTML = 'Selectionnez à présent vos options';
-        document.getElementById('sheet__form').style.display = 'block';
-    } else {
-        document.getElementById('btn_choice').innerHTML == 'Choisissez la couleur ainsi que la quantité désirée en appuyant ici';
-        document.getElementById('sheet__form').style.display = 'none';
-    }
-};
 
 const id = getIdFromUrl();
 let url = `http://localhost:3000/api/teddies/${id}`;
