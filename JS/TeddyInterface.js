@@ -1,4 +1,4 @@
-class TeddyInterface { // création de la classe teddy
+export class TeddyInterface { // création de la classe teddy
 
     static displayInList(teddy) {
         let card = document.createElement('div');

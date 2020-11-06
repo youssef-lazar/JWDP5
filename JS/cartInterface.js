@@ -1,9 +1,9 @@
-class CartInterface {
+export class CartInterface {
 
     static choiceOfOptions(teddy) {
         let choiceElt = document.createElement('div');
         choiceElt.innerHTML = `<h3>Vous souhaitez commander cet ourson?</h3>
-                <button id="btn_choice" onClick="affiche();">Choisissez la couleur ainsi que la quantité désirée en appuyant ici</button>
+                <button id="btn_choice">Choisissez la couleur ainsi que la quantité désirée en appuyant ici</button>
                 <form id="sheet__form">
                 <label for="color_select">Choix de la couleur</label><br>
                 <select id="color_select" required>
@@ -94,7 +94,7 @@ class CartInterface {
         const garbage = document.createElement('button');
         const teddyDivCart = document.createElement('div');
         teddyDivCart.appendChild(garbage);
-        garbage.className = 'icon_garbage';
+        garbage.className = 'delete_cart';
 
         const cartLink = document.createElement('a');
         garbage.appendChild(cartLink);

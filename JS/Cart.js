@@ -1,4 +1,4 @@
-class Cart { // création de la classe Panier
+export class Cart { // création de la classe Panier
     constructor(id = "cart") {
         this.id = id;
         this.storage = JSON.parse(localStorage.getItem(id)) || []; //initialisation de notre variable storage = tableau contenant notre localstorage 'cart' ou vide si pas encore d'éléments dans le localstorage.

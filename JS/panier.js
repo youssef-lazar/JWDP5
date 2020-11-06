@@ -1,3 +1,8 @@
+import { Validator } from "./Validator.js";
+import {Cart} from "./Cart.js";
+import {CartInterface} from "./CartInterface.js";
+
+
 function postForm(data) { // Fonction Post qui va nous servir à envoyer les données à l'API.
     return new Promise((resolve, reject) => {
         let request = new XMLHttpRequest();
@@ -23,37 +28,68 @@ document.getElementById('list_teddies').appendChild(CartInterface.totalPrice(car
 document.getElementById('form1').addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // envoie du prix total au localStorage
+    let errors = formIsValid(form1);
+    if (errors.length > 0) {
+        alert(errors);
 
-    let storagePrice = localStorage.getItem('totalPrice');
-    console.log(storagePrice);
+    } else {
+        //Création de l'objet "contact"
 
-    //Création de l'objet "contact"
-    // let contact = new Contact(form1)
-    let contact = {
-        lastName: form1.lastName.value,
-        firstName: form1.firstName.value,
-        email: form1.email.value,
-        phone: form1.phone.value,
-        address: form1.address.value,
-        zipcode: form1.zip.value,
-        city: form1.city.value,
-        country: form1.country.value
+        let contact = {
+            lastName: form1.lastName.value,
+            firstName: form1.firstName.value,
+            email: form1.email.value,
+            phone: form1.phone.value,
+            address: form1.address.value,
+            zipcode: form1.zip.value,
+            city: form1.city.value,
+            country: form1.country.value
+        }
+
+        // création d'un objet regroupant contact et produits
+        let data = {
+            contact: contact,
+            products: cartRecap.getAllItemsIds(),
+        }
+
+
+        postForm(data).then(function (response) { //Envoi de nos données avec la fonction Post.
+            location.href = "order.html";
+            response.totalPrice = cartRecap.getTotalPrice();
+            let myOrder = JSON.stringify(response);
+            sessionStorage.setItem("myOrder", myOrder);
+            localStorage.clear(); // stockage de la réponse du serveur dans notre local storage.
+        });
     }
-
-    // création d'un objet regroupant contact et produits
-    let data = {
-        contact: contact,
-        products: cartRecap.getAllItemsIds(),
-        total: storagePrice
-    }
-
-
-    postForm(data).then(function (response) { //Envoi de nos données avec la fonction Post.
-        location.href = "order.html";
-        let myOrder = JSON.stringify(response);
-        sessionStorage.setItem("myOrder", myOrder);
-        localStorage.clear(); // stockage de la réponse du serveur dans notre local storage.
-    });
 
 });
+
+function formIsValid(form) {
+    let errors = [];
+
+    if (!Validator.isValid(form.firstName.value)) {
+        errors.push("Le prénom ne doit contenir ni chiffre ni symbole.  ");
+    }
+    if (!Validator.isValid(form.lastName.value)) {
+        errors.push("Le nom ne doit contenir ni chiffre ni symbole.  ");
+    }
+    if (!Validator.validAdress(form.address.value)) {
+        errors.push("L'adresse ne doit contenir aucun symbole.  ")
+    }
+    if (!Validator.isValid(form.city.value)) {
+        errors.push("La ville ne doit contenir ni chiffre ni symbole.  ")
+    }
+    if (!Validator.validMail(form.email.value)) {
+        errors.push("Veuillez saisir une adresse mail valide (exemple : abcd@mail.com).  ")
+    }
+    if (!Validator.validPhone(form.phone.value)) {
+        errors.push("Le numéro de téléphone ne doit contenir que des chiffres.  ")
+    }
+    if (!Validator.validZip(form.zip.value)) {
+        errors.push("Le code postal doit contenir 5 chiffres.  ")
+    }
+    if (!Validator.isValid(form.country.value)) {
+        errors.push("Le pays ne doit contenir ni chiffre ni symbole.   ")
+    }
+    return errors;
+}
