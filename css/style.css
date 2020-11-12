@@ -6,8 +6,6 @@ main {
   padding-bottom: 150px;
   margin-left: auto;
   margin-right: auto; }
-  main .product {
-    text-align: center; }
 
 h1 {
   text-align: center;
@@ -18,15 +16,28 @@ a {
 
 .card {
   border: solid;
-  margin: 29px;
+  margin: auto;
+  margin-top: 29px;
   text-align: center;
   height: 250px;
   width: 250px;
   border-radius: 10px; }
   .card img {
-    width: 245px;
+    width: -moz-available;
     border-radius: 7px 7px 0px 0px;
     height: 150px; }
+
+.product {
+  display: flex; }
+  .product #description {
+    width: 40%;
+    margin-right: 100px;
+    text-align: center; }
+    .product #description img {
+      width: 75%; }
+  .product #choix {
+    width: 40%;
+    margin-top: 220px; }
 
 #list_teddies .each_teddy {
   border: solid;
@@ -51,7 +62,8 @@ a {
     width: 40%;
     margin: auto; }
 
-.delete_cart, .btn-order {
+.delete_cart,
+.btn-order {
   display: block;
   width: 150px;
   line-height: 50px;
@@ -75,5 +87,40 @@ a {
 
 #sheet__form {
   display: none; }
+
+#order_confirmation {
+  text-align: center;
+  border: solid;
+  border-radius: 20px;
+  box-shadow: 5px 10px 5px gray; }
+
+@media all and (max-width: 767px) {
+  .card {
+    width: auto; }
+
+  .product {
+    flex-direction: column; }
+    .product #description {
+      width: 100%;
+      margin: auto;
+      text-align: center; }
+      .product #description img {
+        width: 300px; }
+    .product #choix {
+      width: 100%;
+      text-align: center;
+      margin: auto; }
+
+  #list_teddies .total {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; }
+
+  .delete_cart,
+  .btn-order {
+    margin: auto;
+    margin-top: 20px; } }
 
 /*# sourceMappingURL=style.css.map */

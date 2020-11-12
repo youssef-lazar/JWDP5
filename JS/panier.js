@@ -12,7 +12,6 @@ function postForm(data) { // Fonction Post qui va nous servir à envoyer les don
         request.onreadystatechange = function () {
             if (this.readyState === 4 && this.status == 201) {
                 let response = JSON.parse(this.responseText);
-                console.log(response);
                 resolve(response);
             }
         }

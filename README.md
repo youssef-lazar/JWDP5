@@ -1,10 +1,12 @@
 # Orinoco #
 
-This is the back end server for Project 5 of the Junior Web Developer path.
+Ceci est le Front End du projet 5 Orinoco
 
 ### Prerequisites ###
 
-You will need to have Node and `npm` installed locally on your machine.
+Vous devez avoir Node et `npm` installez localement sur votre machine.
+Pour faire fonctionner le site, vous devez lancer la commande `npx http-server` dans le dossier `JWDP5`.
+Ensuite, executez la commande `npm start` dans le dossier `API` afin de faire fonctionner le Back End.
 
 ### Installation ###
 

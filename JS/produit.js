@@ -51,9 +51,8 @@ function displayTeddy(url) { // Fonction qui vient récupérer les informations 
                 price: teddy.price / 100,
             };
 
-            console.log(teddiesChoosen);
+
             let storedTeddies = cart.ajouter(teddiesChoosen);
-            console.log(storedTeddies);
             if (window.confirm(teddiesChoosen.name + " " + teddiesChoosen.color + ' a bien été ajouté. Souhaitez vous consulter votre panier ?')) {
                 window.location.href = "panier.html";
             } else {
