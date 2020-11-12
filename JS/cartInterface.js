@@ -6,11 +6,9 @@ export class CartInterface {
                 <button id="btn_choice">Choisissez la couleur ainsi que la quantité désirée en appuyant ici</button>
                 <form id="sheet__form">
                 <label for="color_select">Choix de la couleur</label><br>
-                <select id="color_select" required>
-                <option value=""> - Couleur - </option></select><br><br>
+                <select id="color_select" required></select><br><br>
                 <label for="color_select">Choix de la Quantité</label><br>
-                <select id="quantity_select" required>
-                <option value=""> - Quantité - </option></select>
+                <select id="quantity_select" required></select>
                 <button id="add__to__cart" class="product__add__to__cart"> <strong> Ajouter au panier</strong></button>
                 </form>`
         return choiceElt
