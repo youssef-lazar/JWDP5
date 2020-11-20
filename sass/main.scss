@@ -18,6 +18,12 @@ a {
     color: white;
 }
 
+.subtitle, .empty_cart{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
 .card {
     border: solid;
     margin: auto;
@@ -38,20 +44,21 @@ a {
 
 .product {
     display: flex;
+    text-align: center;
+    margin-top: 100px;
 
     #description {
-        width: 40%;
+        width: 50%;
         margin-right: 100px;
-        text-align: center;
-
+        
         img {
             width: 75%;
         }
     }
 
     #choix {
-        width: 40%;
-        margin-top: 220px;
+        width: 50%;
+        margin-top: 160px;
     }
 }
 
@@ -130,6 +137,11 @@ a {
 }
 
 @media all and (max-width: 767px) {
+
+    h1{
+        font-size: 40px;
+    }
+
     .card{
         width: auto;
     }

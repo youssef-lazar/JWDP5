@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "sass  ./sass/main.scss:./css/style.css && postcss ./css/style.css --use autoprefixer -d ./css/"
+    
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Youssef LAZAR",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
 }

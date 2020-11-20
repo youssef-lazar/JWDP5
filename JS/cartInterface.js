@@ -124,5 +124,5 @@ export class CartInterface {
 
         return totalElt
     }
-    
+
 }

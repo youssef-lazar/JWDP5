@@ -1,6 +1,12 @@
-import { Validator } from "./Validator.js";
-import {Cart} from "./Cart.js";
-import {CartInterface} from "./CartInterface.js";
+import {
+    Validator
+} from "./Validator.js";
+import {
+    Cart
+} from "./Cart.js";
+import {
+    CartInterface
+} from "./CartInterface.js";
 
 
 function postForm(data) { // Fonction Post qui va nous servir à envoyer les données à l'API.

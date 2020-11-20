@@ -2,16 +2,24 @@
 
 Ceci est le Front End du projet 5 Orinoco
 
-### Prerequisites ###
+## Prerequisites ##
 
 Vous devez avoir Node et `npm` installez localement sur votre machine.
-Pour faire fonctionner le site, vous devez lancer la commande `npx http-server` dans le dossier `JWDP5`.
-Ensuite, executez la commande `npm start` dans le dossier `API` afin de faire fonctionner le Back End.
 
-### Installation ###
+## Installation ##
 
-Clone this repo. From within the project folder, run `npm install`. You 
-can then run the server with `node server`. 
-The server should run on `localhost` with default port `3000`. If the
-server runs on another port for any reason, this is printed to the
-console when the server starts, e.g. `Listening on port 3001`.
+### Frontend (ce projet) ###
+
+
+Le serveur doit fonctionner en `local` avec le port par défaut `3000` (utilisation de modules javascript)
+
+```bash
+git clone https://github.com/youssef-lazar/JWDP5.git
+cd JDWP5
+npx http-server
+```
+
+### Backend  (fourni) ###
+
+Voir repo et readme à l'adresse https://github.com/OpenClassrooms-Student-Center/JWDP5
+

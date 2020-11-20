@@ -1,10 +1,24 @@
-import {retrieveContent} from "./Utils.js";
-import {Teddy} from "./Teddy.js";
-import {TeddyInterface} from "./TeddyInterface.js";
-import {updateColorSelectorElt} from "./FormInterface.js";
-import {updateQuantitySelectorElt} from "./FormInterface.js";
-import {Cart} from "./Cart.js";
-import {CartInterface} from "./CartInterface.js";
+import {
+    retrieveContent
+} from "./Utils.js";
+import {
+    Teddy
+} from "./Teddy.js";
+import {
+    TeddyInterface
+} from "./TeddyInterface.js";
+import {
+    updateColorSelectorElt
+} from "./FormInterface.js";
+import {
+    updateQuantitySelectorElt
+} from "./FormInterface.js";
+import {
+    Cart
+} from "./Cart.js";
+import {
+    CartInterface
+} from "./CartInterface.js";
 
 
 function getIdFromUrl() {
