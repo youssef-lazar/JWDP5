@@ -112,6 +112,13 @@ a {
     margin-top: 20px;
 }
 
+.legends_form {
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 #sticky-footer {
     background-color: black;
     color: white;
@@ -181,5 +188,9 @@ a {
     .btn-order {
         margin: auto;
         margin-top: 20px;
+    }
+
+    .legends_form {
+        font-size: 14px;
     }
 }
